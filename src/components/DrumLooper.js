@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DrumLooper = () => {
-    return ( console.log("Drum looper") );
+    return ( <div>Drum looper</div>);
 }
  
 export default DrumLooper;

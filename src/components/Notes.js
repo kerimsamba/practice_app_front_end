@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Notes = () => {
-    return ( console.log("Notes") );
+    return (<div>
+        Notes
+    </div>);
 }
- 
+
 export default Notes;

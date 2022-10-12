@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NewPracticeItem = () => {
-    return ( console.log("New Practice Item") );
+    return ( <div>New Practice Item</div> );
 }
  
 export default NewPracticeItem;

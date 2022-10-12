@@ -1,7 +1,9 @@
 import React from 'react';
 
 const SetPriority = () => {
-    return ( console.log("Set priority") );
+    return ( <div>
+        Set Priority here
+    </div> );
 }
  
 export default SetPriority;
