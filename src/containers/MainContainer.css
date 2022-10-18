@@ -9,10 +9,15 @@
     flex-basis: content;
 } */
 
-.bottom-bar {
+/* .bottom-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    list-style: none;
+} */
 
-
+.bottom-bar ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
 }

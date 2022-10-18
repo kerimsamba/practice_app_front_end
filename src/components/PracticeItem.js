@@ -1,10 +1,9 @@
 import React from 'react';
-import SetPriority from './SetPriority';
-import YouTubePlayer from './YouTubePlayer';
-import Notes from './Notes';
-import Timer from './Timer';
 import './style/PracticeItem.css';
 import { useState } from 'react';
+import EditPracticeItem from './EditPracticeItem';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 
 
 const PracticeItem = ({ item }) => {
@@ -31,15 +30,30 @@ const PracticeItem = ({ item }) => {
         }
     }
 
+    // const Timer = () => {
+    //     var now = new Date().getTime();
+    //     console.log(now);
+    // }
+
 
     return (
         <div className='list-container'>
             <ul>
-                <li>{item.priority}</li>
-                <li>{item.name} </li>
-                <li>{item.category}</li>
-                <button>{item.time} mins</button>
-                <button onClick={() => setVideoplaying(!videoplaying)} className={item.youtubeLink.length > 15 ? "active" : ""}>Youtube</button>
+                <li className="box1">{item.priority}</li>
+                <li className="box2" >Title:
+                    <div>{item.name}</div> </li>
+                <li className="box3">Category:
+                    <div>{item.category}</div></li>
+                <li className="box4">Notes:
+                    <div>{item.notes}</div>
+                </li>
+                <li className="box5">
+                    <div>Last played: {item.dateLastPlayed} </div>
+                <div>Played: {item.numOfPlays}</div>
+                <div>Target bpm: {item.bpm}</div></li>
+                <button onClick={() => EditPracticeItem(item)}>Edit</button>
+                <button onClick={() => setVideoplaying(!videoplaying)} className={item.youtubeLink ? "active" : ""} ><img src="/youtube-logo.png" alt="youtube"></img></button>
+            
             </ul>
             {videoplaying ? <PlayYouTubeVideo /> : null}
 
@@ -48,3 +62,5 @@ const PracticeItem = ({ item }) => {
 }
 
 export default PracticeItem;
+
+{/* <Link to="/editpracticeitem">Edit</Link> */}

@@ -5,7 +5,10 @@ import PracticeItem from '../components/PracticeItem';
 import Request from '../helper/Request.js';
 import Review from '../components/Review';
 import FetchLowerPriorityItems from '../components/FetchLowerPriorityItems';
-// import './MainContainer.css';
+import './MainContainer.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ListPracticeItems from '../components/ListPracticeItems';
+
 
 
 
@@ -14,7 +17,6 @@ import FetchLowerPriorityItems from '../components/FetchLowerPriorityItems';
 const MainContainer = () => {
 
     const [items, setItems] = useState([]);
-
 
     useEffect(() => {
         const request = new Request()
@@ -52,33 +54,45 @@ const MainContainer = () => {
     //   return <PracticeItem item={foundItem} handleDelete={handeDelete}/>
     // }
 
-    const itemsList = items.map((item, index) => {
-        return (
+    // const itemsList = items.map((item, index) => {
+    //     return (
 
-            <ul key={index}>
-                <div>
-                    <PracticeItem item={item} />
-
-                </div>
-            </ul>
-        )
-    })
+    //         <ul key={index}>
+    //             <div>
+    //                 <PracticeItem item={item} />
+    //             </div>
+    //         </ul>
+    //     )
+    // })
 
     return (
+
+
         <div>
+            <Routes>
+                <Route path="/newpracticeitem" element={<NewPracticeItem />} />
+                <Route path="/review" element={<Review />} />
+            </Routes>
             <h3>Todays practice items are:</h3>
             <div>
-                {itemsList}
-                <button><FetchLowerPriorityItems/></button>
+                <ListPracticeItems/>
+                <button><FetchLowerPriorityItems />Lower Priority Items</button>
             </div>
 
             <div className='bottom-bar'>
-            <button><DrumLooper /></button>
-            <button><Review /></button>
-            <button><NewPracticeItem /></button>
+                <ul>
+                    <li> <DrumLooper /></li>
+                    <Link to="/newpracticeitem">Add new</Link>
+                    <Link to="/review">Review All</Link>
+
+                </ul>
             </div>
         </div>
+        // <div><Review/></div>
+
     );
 }
 
 export default MainContainer;
+
+
