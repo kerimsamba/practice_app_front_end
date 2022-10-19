@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import PracticeItem from '../components/PracticeItem';
-import EditPracticeItem from './EditPracticeItem';
+import PracticeItem from './PracticeItem';
 import Request from '../helper/Request.js';
 
 
-const ListPracticeItems = () => {
+const ListDailyPracticeItems = () => {
 
     const [items, setItems] = useState([]);
 
@@ -26,11 +25,9 @@ const ListPracticeItems = () => {
         )
     })
 
-        return (
-            <>{itemsList}</>
-        );
-        }
+    return (
+        <>{itemsList}</>
+    );
+}
 
-
-
-    export default ListPracticeItems;
+export default ListDailyPracticeItems;
